@@ -1,0 +1,142 @@
+
+.home-container {
+  --bg-color: #f5f7fa;
+  --text-color: #2d3748;
+  --card-bg: #ffffff;
+  --primary: #3182ce;
+  --primary-hover: #2c5282;
+  --border: #e2e8f0;
+  --success-bg: #f0fff4;
+  --success-text: #2f855a;
+  --error-bg: #fff5f5;
+  --error-text: #c53030;
+
+  
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  isolation: isolate;
+}
+
+@media (prefers-color-scheme: dark) {
+  .home-container {
+    --bg-color: #1a202c;
+    --text-color: #f7fafc;
+    --card-bg: #2d3748;
+    --primary: #63b3ed;
+    --primary-hover: #4299e1;
+    --border: #4a5568;
+    --success-bg: #1c4532;
+    --success-text: #9ae6b4;
+    --error-bg: #742a2a;
+    --error-text: #feb2b2;
+    background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+  }
+}
+
+.home-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  z-index: -1;
+}
+
+.home-container .home-content {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.home-container .home-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.home-container .home-header h2 {
+  font-size: 1.8rem;
+  color: var(--text-color);
+}
+
+.home-container .home-upload-container {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+}
+
+.home-container .home-image-preview {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--border);
+}
+
+.home-container .home-file-input {
+  width: 90%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-color);
+}
+
+.home-container .home-upload-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.home-container .home-upload-btn:hover {
+  background: var(--primary-hover);
+}
+
+.home-container .home-upload-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.home-container .home-registration-message {
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.home-container .home-registration-message.success {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.home-container .home-registration-message.error {
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+@media (max-width: 768px) {
+  .home-container .home-content {
+    padding: 1rem;
+  }
+  
+  .home-container .home-upload-container {
+    padding: 1.5rem;
+  }
+}

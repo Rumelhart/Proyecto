@@ -1,0 +1,429 @@
+
+:root {
+  --background-color: #f4f4f4;
+  --text-color: #333;
+  --card-background: #ffffff;
+  --card-border: #ddd;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --input-border: #3498db;
+  --input-focus-border: #2980b9;
+  --placeholder-color: #888;
+  --primary-color: #1976d2;
+  --primary-hover: #1565c0;
+  --success-color: #e8f5e9;
+  --success-border: #c8e6c9;
+  --danger-color: #ffebee;
+  --danger-border: #ffcdd2;
+  --warning-color: #fff3cd;
+  --warning-border: #ffc107;
+  --spot-text: #555;
+  --spot-placa: #d32f2f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1a1a1a;
+    --text-color: #f4f4f4;
+    --card-background: #2c3e50;
+    --card-border: #34495e;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --input-border: #2980b9;
+    --input-focus-border: #3498db;
+    --placeholder-color: #bbb;
+    --success-color: #1e3a1e;
+    --success-border: #2d4d2d;
+    --danger-color: #3a1e1e;
+    --danger-border: #4d2d2d;
+    --warning-color: #3a3a1e;
+    --warning-border: #4d4d2d;
+    --spot-text: #ccc;
+    --spot-placa: #ff6b6b;
+  }
+}
+
+
+.admin-parking-container {
+  all: initial;
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+
+/* Estilos para el título */
+.admin-parking-container h1 {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.admin-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.admin-parking-search {
+  flex: 1;
+  min-width: 250px;
+  padding: 12px 15px;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background-color: var(--card-background);
+  color: var(--text-color);
+}
+
+.admin-parking-search::placeholder {
+  color: var(--placeholder-color);
+  opacity: 0.7;
+}
+
+.admin-parking-search:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
+.toggle-map-button,
+.view-mode-button,
+.focus-vehicle-button {
+  padding: 12px 20px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.toggle-map-button:hover,
+.view-mode-button:hover,
+.focus-vehicle-button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.toggle-map-button:disabled,
+.view-mode-button:disabled,
+.focus-vehicle-button:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+.admin-parking-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+
+.admin-parking-item {
+  background-color: var(--card-background);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 6px var(--card-shadow);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.admin-parking-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px var(--card-shadow);
+}
+
+.admin-parking-item.selected-item {
+  border: 2px solid var(--warning-border);
+  background-color: var(--warning-color);
+}
+
+
+.admin-parking-image-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.admin-parking-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.admin-parking-image-container:hover .admin-parking-image {
+  transform: scale(1.03);
+}
+
+
+.admin-parking-zoom-icon {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.admin-parking-zoom-icon:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.vehicle-info-admin {
+  padding: 0 5px;
+}
+
+.vehicle-info-admin p {
+  margin: 8px 0;
+  color: var(--text-color);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.vehicle-info-admin strong {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+
+.admin-parking-empty {
+  text-align: center;
+  color: var(--placeholder-color);
+  font-size: 1.1rem;
+  margin: 40px 0;
+  grid-column: 1 / -1;
+}
+
+
+.admin-parking-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.admin-parking-modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.admin-parking-modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.admin-parking-modal-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.close-modal-button {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-modal-button:hover {
+  transform: rotate(90deg);
+}
+
+/* Estilos para el mapa */
+.map-view-container {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px var(--card-shadow);
+  margin-bottom: 20px;
+}
+
+.parking-map-admin {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.parking-block-admin {
+  background-color: var(--card-background);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 4px var(--card-shadow);
+}
+
+.parking-block-admin h3 {
+  margin: 0 0 15px 0;
+  color: var(--text-color);
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.spots-grid-admin {
+  display: grid;
+  gap: 8px;
+  padding: 5px;
+  background-color: var(--background-color);
+  border-radius: 8px;
+}
+
+.spot-admin {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.spot-admin.available-spot {
+  background-color: var(--success-color);
+  border: 1px solid var(--success-border);
+}
+
+.spot-admin.occupied-spot {
+  background-color: var(--danger-color);
+  border: 1px solid var(--danger-border);
+}
+
+.spot-admin.selected-spot {
+  background-color: var(--warning-color);
+  border: 2px solid var(--warning-border);
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.3);
+  animation: pulse 1.5s infinite;
+}
+
+.spot-number-admin {
+  font-weight: bold;
+  color: var(--spot-text);
+}
+
+.spot-placa-admin {
+  margin-top: 3px;
+  font-size: 9px;
+  font-weight: bold;
+  color: var(--spot-placa);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spot-selected-indicator {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--warning-border);
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+/* Información del vehículo seleccionado */
+.selected-vehicle-info {
+  background-color: var(--card-background);
+  border-left: 4px solid var(--warning-border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px var(--card-shadow);
+}
+
+.selected-vehicle-info h3 {
+  margin-top: 0;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .admin-parking-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .parking-map-admin {
+    grid-template-columns: 1fr;
+  }
+  
+  .spots-grid-admin {
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-parking-container {
+    padding: 15px;
+  }
+  
+  .admin-parking-container h1 {
+    font-size: 1.5rem;
+  }
+  
+  .spot-number-admin {
+    font-size: 9px;
+  }
+  
+  .spot-placa-admin {
+    font-size: 7px;
+  }
+}

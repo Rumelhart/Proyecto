@@ -1,0 +1,38 @@
+.hamburguesa-menu {
+  position: fixed; 
+  top: 20px;       
+  right: 20px;     
+  z-index: 1000;   
+}
+
+.hamburguesa-menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.hamburguesa-menu-links {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #333;
+  color: #fff;
+  
+  z-index: 1000; 
+}
+
+.hamburguesa-menu-links.show {
+  display: block;
+}
+
+.hamburguesa-menu-links li {
+  padding: 10px;
+}
+
+.hamburguesa-menu-links li a {
+  color: #fff;
+  text-decoration: none;
+}

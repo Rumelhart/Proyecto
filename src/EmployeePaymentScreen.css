@@ -1,0 +1,141 @@
+:root {
+  --container-bg-color: #f9f9f9;
+  --text-color: #000;
+  --input-bg-color: #fff;
+  --input-text-color: #000;
+  --list-item-bg-color: #ffffff;
+  --list-item-hover-bg-color: #f0f0f0;
+  --selected-bg-color: #d9edf7;
+  --selected-border-color: #bce8f1;
+  --confirm-section-bg-color: #f9f9f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --container-bg-color: #333; 
+    --text-color: #f0f0f0; 
+    --input-bg-color: #555; 
+    --input-text-color: #f0f0f0; 
+    --list-item-bg-color: #444; 
+    --list-item-hover-bg-color: #555; 
+    --selected-bg-color: #555; 
+    --selected-border-color: #888; 
+    --confirm-section-bg-color: #333; 
+  }
+}
+
+
+.eps-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: var(--container-bg-color);
+  color: var(--text-color);
+}
+
+
+.eps-sign-out-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.eps-sign-out-button:hover {
+  background-color: #ff3333;
+}
+
+
+.eps-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+}
+
+
+.eps-list-container {
+  margin-top: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.eps-list-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: var(--list-item-bg-color);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.eps-list-item:hover {
+  background-color: var(--list-item-hover-bg-color);
+}
+
+
+.eps-selected {
+  background-color: var(--selected-bg-color);
+  border-color: var(--selected-border-color);
+}
+
+
+.eps-image-container {
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.eps-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+
+.eps-details {
+  flex-grow: 1;
+}
+
+
+.eps-detail-text {
+  margin: 0;
+  font-size: 14px;
+}
+
+
+.eps-confirm-section {
+  margin-top: 20px;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  background-color: var(--confirm-section-bg-color);
+  color: var(--text-color);
+}
+
+
+.eps-confirm-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.eps-confirm-button:hover {
+  background-color: #218838;
+}
