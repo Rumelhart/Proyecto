@@ -29,8 +29,8 @@ interface ParkingMapProps {
 
 const ParkingMap: React.FC<ParkingMapProps> = ({ spots, onSpotClick, selectedSpot }) => {
   const parkingConfig = [
-    { bloque: 'A', total: 50, filas: 5, columnas: 10 },
-    { bloque: 'D', total: 50, filas: 5, columnas: 10 }
+    { bloque: 'A', total: 50, filas: 5, columnas: 5 },
+    { bloque: 'D', total: 50, filas: 5, columnas: 5 }
   ];
 
   return (
